@@ -5,6 +5,7 @@ import { Provider } from "react-redux";
 import store from "./store";
 import {loadUser} from "./actions/authActions";
 import ItemModal from "./components/ItemModal";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
@@ -17,7 +18,7 @@ class App extends React.Component {
   render(){
     return (
       <Provider store={store}>
-      <div className="App">
+      {/* <div className="App">
        <AppNavbar />
        
        <Container>
@@ -25,8 +26,16 @@ class App extends React.Component {
        <ShoppingList />
        </Container>
        
-      </div>
+      </div> */}
+      <Router>
+        <Switch>
+          <Route path="/" exact>
+            <AppNavbar />
+          </Route>
+        </Switch>
+      </Router>
       </Provider>
+      
     );
   } 
 }

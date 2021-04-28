@@ -16,3 +16,17 @@
   opacity: 0.01;
   transition: opacity 1000ms ease-in;
 }
+
+/* Navbar starts */
+
+.nav-link {
+  color: white;
+}
+.nav-link:hover {
+  color: wheat;
+}
+.first-nav {
+  margin-left: 18rem;
+}
+
+/* Navbar ends */
