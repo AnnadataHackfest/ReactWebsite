@@ -61,7 +61,7 @@ class AppNavbar extends React.Component {
 
         return (
           <div>
-              <Navbar color="dark" dark expand="sm" className="mb-5">
+              <Navbar color="dark" dark expand="sm" className="mb-5 navbar-main">
                   <Container>
                       <NavbarBrand href="/">Annadata</NavbarBrand>
                       <NavbarToggler onClick={this.toggle} />

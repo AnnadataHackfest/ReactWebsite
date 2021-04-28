@@ -1,4 +1,4 @@
-.remove-btn {
+/* .remove-btn {
   margin-right: 1rem;
 }
 
@@ -15,10 +15,13 @@
 .fade-exit-active {
   opacity: 0.01;
   transition: opacity 1000ms ease-in;
-}
+} */
 
 /* Navbar starts */
 
+.navbar-main {
+	margin: 0;
+}
 .nav-link {
   color: white;
 }
@@ -34,8 +37,16 @@
 /* hero-section starts */
 
 .carousel-item {
-  max-height: 30rem;
+  max-height: 40rem;
+  max-width: auto;
   margin: 0;
+}
+.carousel-img {
+	height: 40rem;
+	width: auto;
+}
+.carousel-main {
+	margin-top: 0;
 }
 
 /* hero-section ends */
@@ -316,3 +327,83 @@
 }
 
 /* Testimonial ends */
+
+/* about page starts */
+@import url("https://fonts.googleapis.com/icon?family=Material+Icons");
+
+.about_us{
+  font-family: 'Roboto', sans-serif;
+  display: block;
+  width: 100%;
+  min-height: 60vh;
+  background: #34495e;
+  color: rgba(255, 255, 255, 0.7);
+  text-align: left;
+  position: relative;
+  padding: 150px 10% 50px 10%;
+  margin-bottom: 2rem;
+}
+
+.about_us > h2{
+  display: block;
+  color: rgba(255, 255, 255, 1);
+  font-size: 32px;
+  line-height: 31px;
+  letter-spacing: 1px;
+  font-weight: 700;
+  margin: 0 auto 30px;
+}
+
+.about_us > span {
+  display: block;
+  color: rgba(255, 255, 255, 1);
+  font-size: 16px;
+  font-weight: bold;
+  line-height: 1.75;
+  margin: 20px auto 10px;
+}
+
+.about_us > p{
+  display: block;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 1.75;
+  margin: 0 auto 10px;
+}
+
+.about_us > img{
+  display: block;
+  margin-bottom: 20px;
+}
+
+.about_us > .mission{
+  color: rgba(255, 255, 255, 1);
+  display: blcok;
+  width: 60%;
+  box-sizing: border-box;
+  border-radius: 10px;
+  background-color: rgba(92,188,224,0.4);
+  margin-left: 20%;
+  padding: 5px 10px; 
+
+}
+
+.about_us > .mission > span{
+  display: block;
+  margin: 0 auto 10px;
+  font-size: x-large;
+  text-align: center;
+  font-weight: 500;
+  line-height: 1.75;
+}
+.about_us > .mission > p{
+  display: block;
+  color: rgba(255, 255, 255, 1);
+  margin: 0 auto 10px;
+  text-align: center;
+  font-weight: 500;
+  line-height: 1.75;
+}
+
+
+/* about page ends */

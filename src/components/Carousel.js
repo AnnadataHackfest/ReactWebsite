@@ -5,10 +5,10 @@ import '../App.css';
 
 const CarouselPage = () => {
   return (
-    <Carousel fade>
+    <Carousel className="carousel-main" fade>
   <Carousel.Item className="carousel-item">
     <img
-      className="d-block w-100"
+      className="d-block w-100 carousel-img"
       src="https://images.unsplash.com/photo-1574943320219-553eb213f72d?ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8ZmFybWVyfGVufDB8fDB8fA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60"
       alt="First slide"
     />
@@ -19,7 +19,7 @@ const CarouselPage = () => {
   </Carousel.Item>
   <Carousel.Item className="carousel-item">
     <img
-      className="d-block w-100"
+      className="d-block w-100 carousel-img"
       src="https://images.unsplash.com/photo-1533241242276-46a506b40d66?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MjZ8fGZhcm1lcnxlbnwwfHwwfHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60"
       alt="Second slide"
     />
@@ -31,7 +31,7 @@ const CarouselPage = () => {
   </Carousel.Item>
   <Carousel.Item className="carousel-item">
     <img
-      className="d-block w-100"
+      className="d-block w-100 carousel-img"
       src="https://images.unsplash.com/photo-1598961948358-df15791f5395?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MzR8fGZhcm1lcnxlbnwwfHwwfHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60"
       alt="Third slide"
     />

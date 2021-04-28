@@ -4,6 +4,7 @@ import CarouselPage from './components/Carousel';
 import Features from './components/Features';
 import Testimonial from './components/Testimonial';
 import Footer from './components/Footer';
+import About from './components/About';
 import ShoppingList from "./components/ShoppingList";
 import { Provider } from "react-redux";
 import store from "./store";
@@ -39,6 +40,11 @@ class App extends React.Component {
             <CarouselPage />
             <Features />
             <Testimonial />
+            <Footer />
+          </Route>
+          <Route path="/about" exact>
+            <AppNavbar />
+            <About />
             <Footer />
           </Route>
         </Switch>
