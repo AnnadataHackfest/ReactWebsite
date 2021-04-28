@@ -85,7 +85,7 @@ class AppNavbar extends React.Component {
                             Location                         
                           </NavLink>
                           <NavLink href="/modern" className="nav-link" navbar>
-                            Modern Farming                         
+                            ModernFarming                         
                           </NavLink>
                           <NavLink href="/community" className="nav-link" navbar>
                             Community                        
@@ -93,9 +93,9 @@ class AppNavbar extends React.Component {
                           <NavLink href="/login" className="nav-link" navbar>
                             Login                         
                           </NavLink>
-                          {/* <NavLink href="/signup" className="nav-link" navbar>
-                            Sign up                        
-                          </NavLink> */}
+                          <NavLink href="/signup" className="nav-link" navbar>
+                            SignUp                        
+                          </NavLink>
                       </Collapse>
                   </Container>
               </Navbar>

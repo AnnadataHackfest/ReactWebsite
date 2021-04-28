@@ -7,7 +7,7 @@ import Button from 'react-bootstrap/Button';
 
 const Features = () => {
   return (
-      <div>
+      <div style={{marginBottom: "2rem"}}>
       <div style={{textAlign: "center", marginTop: "2rem", marginBottom: "2rem"}}><h2>Our Salient Features</h2></div>
     <Container>
         <Row>
