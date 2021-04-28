@@ -1,5 +1,7 @@
 import React from 'react';
 import AppNavbar from './components/AppNavbar';
+import CarouselPage from './components/Carousel';
+import Features from './components/Features';
 import ShoppingList from "./components/ShoppingList";
 import { Provider } from "react-redux";
 import store from "./store";
@@ -31,6 +33,8 @@ class App extends React.Component {
         <Switch>
           <Route path="/" exact>
             <AppNavbar />
+            <CarouselPage />
+            <Features />
           </Route>
         </Switch>
       </Router>
