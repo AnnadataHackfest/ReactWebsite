@@ -90,12 +90,6 @@ class AppNavbar extends React.Component {
                           <NavLink href="/login" className="nav-link">
                             Login                         
                           </NavLink>
-                          <NavLink href="/signup" className="nav-link">
-                            SignUp                        
-                          </NavLink> */}
-                          <NavLink href="/signup" className="nav-link">
-                            SignUp             
-                          </NavLink>
                           <Nav className="ml-auto" navabr>
                             {isAuthenticated ? authLinks : guestLinks}                           
                           </Nav>
