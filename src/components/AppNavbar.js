@@ -69,22 +69,22 @@ class AppNavbar extends React.Component {
                           <NavLink href="/about" className="nav-link first-nav">
                             About                          
                           </NavLink>
-                          <NavLink href="/crop" className="nav-link" navbar>
+                          <NavLink href="/crop" className="nav-link" >
                             Crop                          
                           </NavLink>
-                          <NavLink href="/soil" className="nav-link" navbar>
-                            Soil                         
+                          <NavLink href="/soil" className="nav-link">
+                            Soil
                           </NavLink>
-                          <NavLink href="/schemes" className="nav-link" navbar>
+                          <NavLink href="/schemes" className="nav-link">
                             Schemes                         
                           </NavLink>
-                          <NavLink href="/location" className="nav-link" navbar>
+                          <NavLink href="/location" className="nav-link">
                             Location                         
                           </NavLink>
-                          <NavLink href="/modern" className="nav-link" navbar>
+                          <NavLink href="/modern" className="nav-link">
                             ModernFarming                         
                           </NavLink>
-                          <NavLink href="/community" className="nav-link" navbar>
+                          <NavLink href="/community" className="nav-link">
                             Community                        
                           </NavLink>
                           {/* <NavLink href="/login" className="nav-link" navbar>
@@ -93,6 +93,9 @@ class AppNavbar extends React.Component {
                           <NavLink href="/signup" className="nav-link" navbar>
                             SignUp                        
                           </NavLink> */}
+                          <NavLink href="/signup" className="nav-link">
+                            SignUp             
+                          </NavLink>
                           <Nav className="ml-auto" navabr>
                             {isAuthenticated ? authLinks : guestLinks}                           
                           </Nav>
