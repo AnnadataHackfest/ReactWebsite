@@ -5,6 +5,8 @@ import Features from './components/Features';
 import Testimonial from './components/Testimonial';
 import Footer from './components/Footer';
 import About from './components/About';
+import FarmersAskFarmers from './components/FarmersAskFarmers';
+import QuestionModal from './components/QuestionModal';
 import ShoppingList from "./components/ShoppingList";
 import { Provider } from "react-redux";
 import store from "./store";
@@ -54,9 +56,10 @@ class App extends React.Component {
             <About />
             <Footer />
           </Route>
-          <Route path="/community">
+          <Route path="/community" exact>
             <AppNavbar />
-            <Community />
+            <QuestionModal />
+            <FarmersAskFarmers />
             <Footer />
           </Route>
           <Route path="/soil">

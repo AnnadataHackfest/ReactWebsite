@@ -20,6 +20,7 @@ class LoginModal extends Component {
   state = {
     modal: false,
     email: '',
+    phone: '',
     password: '',
     msg: null
   };
@@ -65,10 +66,11 @@ class LoginModal extends Component {
   onSubmit = e => {
     e.preventDefault();
 
-    const { email, password } = this.state;
+    const { email, phone, password } = this.state;
 
     const user = {
       email,
+      phone,
       password
     };
 
@@ -97,6 +99,16 @@ class LoginModal extends Component {
                   name='email'
                   id='email'
                   placeholder='Email'
+                  className='mb-3'
+                  onChange={this.onChange}
+                />
+
+                <Label for='email'>Phone</Label>
+                <Input
+                  type='text'
+                  name='phone'
+                  id='phone'
+                  placeholder='Phone number'
                   className='mb-3'
                   onChange={this.onChange}
                 />

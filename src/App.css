@@ -31,6 +31,9 @@
 .first-nav {
   margin-left: 18rem;
 }
+.nav-fragment {
+  display: flex;
+}
 
 /* Navbar ends */
 
