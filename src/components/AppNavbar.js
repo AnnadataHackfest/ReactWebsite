@@ -36,27 +36,27 @@ class AppNavbar extends React.Component {
         const { isAuthenticated, user } = this.props.auth;
 
         const authLinks = (
-            <Fragment>
+            <div className="nav-fragment">
             <NavItem>
                 <span className="navbar-text mr-3">
-                    <strong>{user ? `Welcome ${user.name}` : null}</strong>
+                    <strong>{user ? `Welcome ${user.name.split(' ').slice(0, -1).join(' ')}` : null}</strong>
                 </span>
             </NavItem>
               <NavItem>
                 <Logout />
             </NavItem>
-            </Fragment>
+            </div>
         )
 
         const guestLinks = (
-            <Fragment>
+            <div className="nav-fragment">
               <NavItem>
                 <RegisterModal />
              </NavItem>
              <NavItem>
                 <LoginModal />
             </NavItem>
-            </Fragment>
+            </div>
         )
 
         return (
@@ -66,9 +66,6 @@ class AppNavbar extends React.Component {
                       <NavbarBrand href="/">Annadata</NavbarBrand>
                       <NavbarToggler onClick={this.toggle} />
                       <Collapse isOpen={this.state.isOpen} navbar>
-                          {/* <Nav className="ml-auto" navabr>
-                            {isAuthenticated ? authLinks : guestLinks}                           
-                          </Nav> */}
                           <NavLink href="/about" className="nav-link first-nav">
                             About                          
                           </NavLink>
@@ -90,12 +87,15 @@ class AppNavbar extends React.Component {
                           <NavLink href="/community" className="nav-link" navbar>
                             Community                        
                           </NavLink>
-                          <NavLink href="/login" className="nav-link" navbar>
+                          {/* <NavLink href="/login" className="nav-link" navbar>
                             Login                         
                           </NavLink>
                           <NavLink href="/signup" className="nav-link" navbar>
                             SignUp                        
-                          </NavLink>
+                          </NavLink> */}
+                          <Nav className="ml-auto" navabr>
+                            {isAuthenticated ? authLinks : guestLinks}                           
+                          </Nav>
                       </Collapse>
                   </Container>
               </Navbar>
