@@ -6,6 +6,7 @@ import Testimonial from './components/Testimonial';
 import Footer from './components/Footer';
 import About from './components/About';
 import FarmersAskFarmers from './components/FarmersAskFarmers';
+import Infos from './components/Infos';
 import QuestionModal from './components/QuestionModal';
 import ShoppingList from "./components/ShoppingList";
 import { Provider } from "react-redux";
@@ -60,6 +61,11 @@ class App extends React.Component {
             <AppNavbar />
             <QuestionModal />
             <FarmersAskFarmers />
+            <Footer />
+          </Route>
+          <Route path="/community/answer" exact>
+            <AppNavbar />
+            <Infos />
             <Footer />
           </Route>
           <Route path="/soil">

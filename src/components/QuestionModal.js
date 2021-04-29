@@ -90,9 +90,9 @@ class QuestionModal extends React.Component {
                <Button color="dark" style={{marginBottom: "2rem", marginLeft: "1rem", marginRight: "1rem"}} onClick={this.infoToggle}>
                   Post Info
                </Button>
-               <Button color="dark" style={{marginBottom: "2rem", marginLeft: "1rem", marginRight: "1rem"}}>
+               <a href="/community/answer"><Button color="dark" style={{marginBottom: "2rem", marginLeft: "1rem", marginRight: "1rem"}}>
                   Answer A Question
-               </Button>
+               </Button></a>
                </div>
                : <h4 className="mb-3 ml-4">
                    Please log in first to participate in the discussion
@@ -218,4 +218,4 @@ const mapStateToProps = state => ({
 })
 
 
-export default connect(mapStateToProps, { addQuestion })(QuestionModal);
+export default connect(mapStateToProps, { addInfo })(QuestionModal);

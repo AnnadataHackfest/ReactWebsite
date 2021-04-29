@@ -2,36 +2,39 @@ import React from "react";
 import {Container, ListGroup, ListGroupItem, Button} from "reactstrap";
 import {CSSTransition, TransitionGroup} from "react-transition-group";
 import { connect } from "react-redux";
-import { getInfos } from "../actions/infoActions";
+import { getQuestions } from "../actions/questionActions";
 import PropTypes from "prop-types";
 import Alert from 'react-bootstrap/Alert'
 
-class FarmersAskFarmers extends React.Component {
+class Infos extends React.Component {
 
     static propTypes = {
-        getInfos: PropTypes.func.isRequired,
-        info: PropTypes.object.isRequired,
+        getQuestions: PropTypes.func.isRequired,
+        question: PropTypes.object.isRequired,
         isAuthenticated: PropTypes.bool
     }
 
   componentDidMount() {
-    this.props.getInfos();
+    this.props.getQuestions();
   }
   
   render() {
-      const { infos } = this.props.info;
+      const { questions } = this.props.question;
+      console.log(questions);
       return (
         <Container>
-        <div style={{textAlign: "center", marginBottom: "2rem"}}><h2>Grow with the Community</h2></div>
+        <div style={{textAlign: "center", marginBottom: "2rem"}}><h2>Community needs you contribution, please help</h2></div>
                 <div>
-                {infos.map(({ _id, name, question, answer, phone }) => (
-                <Alert show={true} variant="info">
+                {questions.map(({ _id, name, question, phone }) => (
+                <Alert show={true} variant="success">
                  <Alert.Heading>{name}</Alert.Heading>
                  <p>
                   {question} 
                  </p>
                  <hr />
-                 <p>{answer}</p>
+                 <div className="d-flex justify-content-start">
+                  <a href="/"><Button color="primary">Answer now</Button>{' '}</a>
+                 </div>
                  <div className="d-flex justify-content-end">
                   <a href={"tel:"+`${phone}`}><Button variant="outline-success">
                     Call {name}
@@ -49,8 +52,8 @@ class FarmersAskFarmers extends React.Component {
 
 
 const mapStateToProps = (state) => ({
-    info: state.info,
+    question: state.question,
     isAuthenticated: state.auth.isAuthenticated
 });
 
-export default connect(mapStateToProps, { getInfos })(FarmersAskFarmers);
+export default connect(mapStateToProps, { getQuestions })(Infos);
