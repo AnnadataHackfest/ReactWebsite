@@ -87,11 +87,8 @@ class AppNavbar extends React.Component {
                           <NavLink href="/community" className="nav-link">
                             Community                        
                           </NavLink>
-                          {/* <NavLink href="/login" className="nav-link" navbar>
+                          {/* <NavLink href="/login" className="nav-link">
                             Login                         
-                          </NavLink>
-                          <NavLink href="/signup" className="nav-link" navbar>
-                            SignUp                        
                           </NavLink> */}
                           <Nav className="ml-auto" navabr>
                             {isAuthenticated ? authLinks : guestLinks}                           
