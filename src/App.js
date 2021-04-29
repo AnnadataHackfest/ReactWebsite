@@ -60,9 +60,6 @@ class App extends React.Component {
             <AppNavbar />
             <QuestionModal />
             <FarmersAskFarmers />
-          <Route path="/community">
-            <AppNavbar />
-            <Community />
             <Footer />
           </Route>
           <Route path="/soil">
