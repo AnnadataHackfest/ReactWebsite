@@ -17,7 +17,6 @@ import Community from './components/Community';
 import Soil from './components/Soil';
 import Crop from './components/Crop';
 import Location from './components/Location';
-import Login from './components/Login';
 import Schemes from './components/Schemes';
 import ModernFarming from './components/ModernFarming';
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -84,11 +83,6 @@ class App extends React.Component {
           <Route path="/crop">
             <AppNavbar />
             <Crop/>
-            <Footer />
-          </Route>
-          <Route path="/login">
-            <AppNavbar />
-            <Login/>
             <Footer />
           </Route>
         </Switch>
