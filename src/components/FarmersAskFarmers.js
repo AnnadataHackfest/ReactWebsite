@@ -33,6 +33,7 @@ class FarmersAskFarmers extends React.Component {
       console.log(questions);
       return (
         <Container>
+        <div style={{textAlign: "center"}}><h2>Grow with the Community</h2></div>
                 <div>
                 {questions.map(({ _id, name, question, phone }) => (
                 <Alert show={true} variant="success">

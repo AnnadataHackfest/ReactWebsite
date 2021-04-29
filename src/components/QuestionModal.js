@@ -12,12 +12,15 @@ import {
 
 import {connect} from "react-redux";
 import {addQuestion} from "../actions/questionActions";
+import {addInfo} from "../actions/infoActions";
 import PropTypes from "prop-types";
 
 class QuestionModal extends React.Component {
   state = {
-      modal: false,
+      questionModal: false,
+      infoModal: false,
       question: "",
+      answer: "",
       name: "",
       phone: ""
   }
@@ -26,17 +29,23 @@ class QuestionModal extends React.Component {
       isAuthenticated: PropTypes.bool
   }
 
-  toggle = () => {
+  questionToggle = () => {
       this.setState({
-          modal: !this.state.modal
+          questionModal: !this.state.questionModal
       });
   }
+
+  infoToggle = () => {
+    this.setState({
+        infoModal: !this.state.infoModal
+    });
+}
 
   onChange = (e) => {
       this.setState({ [e.target.name]: e.target.value });
   };
 
-  onSubmit = e => {
+  onQuestionSubmit = e => {
       e.preventDefault();
 
       const newQuestion = {
@@ -49,27 +58,54 @@ class QuestionModal extends React.Component {
 
       this.props.addQuestion(newQuestion);
 
-      this.toggle();
+      this.questionToggle();
   }
+
+  onInfoSubmit = e => {
+    e.preventDefault();
+
+    const newInfo = {
+       question: this.state.question,
+       answer: this.state.answer,
+       name: this.state.name,
+       phone: this.state.phone
+    }
+
+    // Add item via addItem action
+
+    this.props.addInfo(newInfo);
+
+    this.infoToggle();
+}
 
   render(){
       return (
         <div>
 
-            {this.props.isAuthenticated ? <Button 
-            color="dark" 
-            style={{marginBottom: "2rem"}}
-            onClick={this.toggle}
-            >Ask Questions</Button> : <h4 className="mb-3 ml-4">Please log in first to participate in the discussion</h4>}
+            {this.props.isAuthenticated ? 
+               <div style={{textAlign: "center"}}>
+               <Button color="dark" style={{marginBottom: "2rem", marginLeft: "1rem", marginRight: "1rem"}} onClick={this.questionToggle}>
+                  Ask Questions
+               </Button> 
+               <Button color="dark" style={{marginBottom: "2rem", marginLeft: "1rem", marginRight: "1rem"}} onClick={this.infoToggle}>
+                  Post Info
+               </Button>
+               <Button color="dark" style={{marginBottom: "2rem", marginLeft: "1rem", marginRight: "1rem"}}>
+                  Answer A Question
+               </Button>
+               </div>
+               : <h4 className="mb-3 ml-4">
+                   Please log in first to participate in the discussion
+                </h4>}
             
 
             <Modal 
-            isOpen={this.state.modal}
-            toggle={this.toggle}
+            isOpen={this.state.questionModal}
+            toggle={this.questionToggle}
             >
-                <ModalHeader toggle={this.toggle}>Ask Questions (Be Specific)</ModalHeader>
+                <ModalHeader toggle={this.questionToggle}>Ask Questions (Be Specific)</ModalHeader>
                 <ModalBody>
-                    <Form onSubmit={this.onSubmit}>
+                    <Form onSubmit={this.onQuestionSubmit}>
                         <FormGroup>
 
                             <Label for="item">Question</Label>
@@ -79,6 +115,7 @@ class QuestionModal extends React.Component {
                              id="question"
                              placeholder="Ask your query"
                              onChange={this.onChange}
+                             style={{marginBottom: "1rem"}}
                             />
 
                             <Label for="item">Your Name</Label>
@@ -88,6 +125,7 @@ class QuestionModal extends React.Component {
                              id="name"
                              placeholder="Your name"
                              onChange={this.onChange}
+                             style={{marginBottom: "1rem"}}
                             />
 
                             <Label for="item">Phone</Label>
@@ -95,8 +133,68 @@ class QuestionModal extends React.Component {
                              type="text"
                              name="phone"
                              id="phone"
-                             placeholder="Your phone number for further commuication"
+                             placeholder="For further commuication"
                              onChange={this.onChange}
+                             style={{marginBottom: "1rem"}}
+                            />
+
+                            <Button
+                             color="dark"
+                             style={{marginTop: "2rem"}}
+                             block
+                            >Ask</Button>
+                        </FormGroup>
+                    </Form>
+                </ModalBody>
+            </Modal>
+
+            <Modal 
+            isOpen={this.state.infoModal}
+            toggle={this.infoToggle}
+            >
+                <ModalHeader toggle={this.infoToggle}>Share an Info which might be helpful</ModalHeader>
+                <ModalBody>
+                    <Form onSubmit={this.onInfoSubmit}>
+                        <FormGroup>
+
+                            <Label for="item">Question</Label>
+                            <Input 
+                             type="text"
+                             name="question"
+                             id="question"
+                             placeholder="What you wanna talk about"
+                             onChange={this.onChange}
+                             style={{marginBottom: "1rem"}}
+                            />
+
+                            <Label for="item">Answer</Label>
+                            <Input 
+                             type="text"
+                             name="answer"
+                             id="answer"
+                             placeholder="Propose your solution"
+                             onChange={this.onChange}
+                             style={{marginBottom: "1rem"}}
+                            />
+
+                            <Label for="item">Your Name</Label>
+                            <Input 
+                             type="text"
+                             name="name"
+                             id="name"
+                             placeholder="Your name"
+                             onChange={this.onChange}
+                             style={{marginBottom: "1rem"}}
+                            />
+
+                            <Label for="item">Phone</Label>
+                            <Input 
+                             type="text"
+                             name="phone"
+                             id="phone"
+                             placeholder="For further commuication"
+                             onChange={this.onChange}
+                             style={{marginBottom: "1rem"}}
                             />
 
                             <Button
@@ -115,6 +213,7 @@ class QuestionModal extends React.Component {
 
 const mapStateToProps = state => ({
     question: state.question,
+    info: state.info,
     isAuthenticated: state.auth.isAuthenticated
 })
 

@@ -1,29 +1,29 @@
-import { GET_QUESTIONS, ADD_QUESTION, DELETE_QUESTION, QUESTIONS_LOADING } from "../actions/types";
+import { GET_INFOS, ADD_INFO, DELETE_INFO, INFOS_LOADING } from "../actions/types";
 
 const initialState = {
-    questions: [],
+    infos: [],
     loading: false
 };
 
 export default function(state = initialState, action) {
     switch(action.type) {
-       case GET_QUESTIONS:
+       case GET_INFOS:
            return {
                ...state,
-               questions: action.payload,
+               infos: action.payload,
                loading: false
            };
-        case DELETE_QUESTION:
+        case DELETE_INFO:
             return {
                 ...state,
-                questions: state.items.filter(item => item._id !== action.payload)
+                infos: state.items.filter(item => item._id !== action.payload)
             };
-        case ADD_QUESTION:
+        case ADD_INFO:
             return {
                 ...state,
-                questions: [action.payload, ...state.questions]
+                infos: [action.payload, ...state.infos]
             };
-        case QUESTIONS_LOADING:
+        case INFOS_LOADING:
             return {
                 ...state,
                 loading: true

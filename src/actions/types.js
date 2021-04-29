@@ -16,3 +16,7 @@ export const GET_QUESTIONS = 'GET_QUESTIONS';
 export const ADD_QUESTION = 'ADD_QUESTION';
 export const DELETE_QUESTION = 'DELETE_QUESTION';
 export const QUESTIONS_LOADING = 'QUESTIONS_LOADING';
+export const GET_INFOS = 'GET_INFOS';
+export const ADD_INFO = 'ADD_INFO';
+export const DELETE_INFO = 'DELETE_INFO';
+export const INFOS_LOADING = 'INFOS_LOADING';
