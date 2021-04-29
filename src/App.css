@@ -31,6 +31,9 @@
 .first-nav {
   margin-left: 18rem;
 }
+.nav-fragment {
+  display: flex;
+}
 
 /* Navbar ends */
 
@@ -403,6 +406,9 @@
   text-align: center;
   font-weight: 500;
   line-height: 1.75;
+}
+.soil{
+  
 }
 
 
