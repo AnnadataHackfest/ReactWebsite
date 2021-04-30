@@ -38,7 +38,15 @@ class Location extends React.Component {
         weed_pollen_risk: "",
         pollen_time: "",
         water_time: "",
-        water_vapour: ""
+        water_vapour: "",
+        aqi: "",
+        co: "",
+        no2: "",
+        ozone: "",
+        pm10: "",
+        aqiInfo: "",
+        city: "",
+        state: ""
       }
 
       this.onSubmit = this.onSubmit.bind(this);
@@ -150,6 +158,32 @@ onSubmitWater = (e) => {
     });
 }
 
+onSubmitAir = (e) => {
+  const url = `https://api.ambeedata.com/latest/by-lat-lng?lat=${this.state.lat}&lng=${this.state.lng}`;
+  axios({
+    method: 'GET',
+    url: url,
+    headers: {
+      "x-api-key": "vbOFm1KGNhaoAIQM0KrSPaknrXIgMaoQdXSMKsd5"
+    }
+  })
+    .then(response => {
+      this.setState({
+        aqi: response.data.stations[0].AQI,
+        co: response.data.stations[0].CO,
+        no2: response.data.stations[0].NO2,
+        ozone: response.data.stations[0].OZONE,
+        pm10: response.data.stations[0].PM10,
+        aqiInfo: response.data.stations[0].aqiInfo.category,
+        city: response.data.stations[0].city,
+        state: response.data.stations[0].state
+      });
+    })
+    .catch(error => {
+      console.log('Data could not be fetched ', error);
+    });
+}
+
   static propTypes = {
       getSoil: PropTypes.func.isRequired,
       isAuthenticated: PropTypes.bool
@@ -177,6 +211,7 @@ onSubmitWater = (e) => {
           <Button color="primary" onClick={this.onSubmitFire} style={{marginTop: "3rem", marginBottom: "3rem", marginLeft:"1rem", marginRight:"1rem"}}>Check for Fire</Button>
           <Button color="primary" onClick={this.onSubmitPollen} style={{marginTop: "3rem", marginBottom: "3rem", marginLeft:"1rem", marginRight:"1rem"}}>Check For Pollen Grains</Button>
           <Button color="primary" onClick={this.onSubmitWater} style={{marginTop: "3rem", marginBottom: "3rem", marginLeft:"1rem", marginRight:"1rem"}}>Check for Humidity</Button>
+          <Button color="primary" onClick={this.onSubmitAir} style={{marginTop: "3rem", marginBottom: "3rem", marginLeft:"1rem", marginRight:"1rem"}}>Check for Air around you</Button>
           </div>
 
           <div style={{display: "flex"}}>
@@ -246,6 +281,24 @@ onSubmitWater = (e) => {
       This data was recorded at the time <strong>{this.state.water_time}. </strong>
       The sole information is to make you aware about the current atmospheric humidity in your atmosphere so that you plan on irrigation 
       accordingly!
+    </Card.Text>
+    <Button variant="primary">Explore Best Practices</Button>
+  </Card.Body>
+</Card>
+          : null}
+
+          {this.state.aqi!=="" ? 
+<Card style={{ width: '18rem', marginTop: "1rem", marginBottom: "2rem", marginLeft: "1rem", marginRight: "1rem" }}>
+  <Card.Img variant="top" src="https://images.unsplash.com/photo-1422132940975-a71d3ffef351?ixid=MnwxMjA3fDB8MHxzZWFyY2h8NHx8YWlyfGVufDB8fDB8fA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" />
+  <Card.Body>
+    <Card.Title>Air Info around you</Card.Title>
+    <hr />
+    <Card.Text>
+      You are currently residing in <strong>{this.state.city} </strong>city and in <strong>{this.state.state}</strong> state.
+      The current info and composition of air around you is <strong>AQI is around {this.state.aqi}, concentration of CO gas is 
+      {this.state.co}%, NO2 gas is {this.state.no2}%, ozone gas is {this.state.ozone}%. </strong>
+      The amount of <strong>PM2 particles is {this.state.pm10}. The AQI suggests that the air around you is {this.state.aqiInfo}. </strong>
+      The sole information is to make you aware about the current air composition arounf you and thus take caution measures as required!
     </Card.Text>
     <Button variant="primary">Explore Best Practices</Button>
   </Card.Body>
