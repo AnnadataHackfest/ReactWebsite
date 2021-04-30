@@ -78,6 +78,9 @@ class AppNavbar extends React.Component {
                           <NavLink href="/schemes" className="nav-link">
                             Schemes                         
                           </NavLink>
+                          <NavLink href="/buy" className="nav-link">
+                            Buy
+                          </NavLink>
                           <NavLink href="/location" className="nav-link">
                             Location                         
                           </NavLink>

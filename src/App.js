@@ -8,6 +8,12 @@ import About from './components/About';
 import FarmersAskFarmers from './components/FarmersAskFarmers';
 import Infos from './components/Infos';
 import QuestionModal from './components/QuestionModal';
+import Navbar from './components/Navbar';
+import Details from './components/Details';
+import Default from './components/Default';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import Cart from './components/Cart';
+import ProductList from './components/ProductList';
 import ShoppingList from "./components/ShoppingList";
 import { Provider } from "react-redux";
 import store from "./store";
@@ -15,6 +21,7 @@ import {loadUser} from "./actions/authActions";
 import ItemModal from "./components/ItemModal";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Community from './components/Community';
+import Modal from './components/Modal';
 import Soil from './components/Soil';
 import Crop from './components/Crop';
 import Location from './components/Location';
@@ -76,6 +83,25 @@ class App extends React.Component {
             <Schemes />
             <Footer />
           </Route>
+          <Route path="/buy">
+            <AppNavbar />
+            <Navbar />
+            <switch>
+              <Route path= "/buy" exact>
+                <ProductList />
+              </Route>
+              <Route path= "/buy/details">
+                <Details />
+              </Route>
+              <Route path= "/buy/cart">
+                <Cart />
+              </Route>
+              <Route path= "/buy/default">
+                <Default />
+              </Route>
+              <Modal />
+            </switch>
+          </Route>
           <Route path="/location">
             <AppNavbar />
             <Location />
@@ -94,7 +120,6 @@ class App extends React.Component {
         </Switch>
       </Router>
       </Provider>
-      
     );
   } 
 }
