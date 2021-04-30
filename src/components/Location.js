@@ -29,7 +29,14 @@ class Location extends React.Component {
         soil_moist: "",
         confidence: "",
         frp: "",
-        detect_time: ""
+        detect_time: "",
+        grass_pollen: "",
+        tree_pollen: "",
+        weed_pollen: "",
+        grass_pollen_risk: "",
+        tree_pollen_risk: "",
+        weed_pollen_risk: "",
+        pollen_time: ""
       }
 
       this.onSubmit = this.onSubmit.bind(this);
@@ -95,7 +102,32 @@ class Location extends React.Component {
         console.log('Data could not be fetched ', error);
       });
 }
-  
+
+onSubmitPollen = (e) => {
+  const url = `https://api.ambeedata.com/latest/pollen/by-lat-lng?lat=${this.state.lat}&lng=${this.state.lng}`;
+  axios({
+    method: 'GET',
+    url: url,
+    headers: {
+      "x-api-key": "vbOFm1KGNhaoAIQM0KrSPaknrXIgMaoQdXSMKsd5"
+    }
+  })
+    .then(response => {
+      this.setState({
+          grass_pollen: response.data.data[0].Count.grass_pollen,
+          tree_pollen: response.data.data[0].Count.tree_pollen,
+          weed_pollen: response.data.data[0].Count.weed_pollen,
+          grass_pollen_risk: response.data.data[0].Risk.grass_pollen,
+          tree_pollen_risk: response.data.data[0].Risk.tree_pollen,
+          weed_pollen_risk: response.data.data[0].Risk.weed_pollen,
+          pollen_time: response.data.data[0].updatedAt,
+      });
+    })
+    .catch(error => {
+      console.log('Data could not be fetched ', error);
+    });
+}
+
   static propTypes = {
       getSoil: PropTypes.func.isRequired,
       isAuthenticated: PropTypes.bool
@@ -121,7 +153,7 @@ class Location extends React.Component {
           <div style={{display: "flex", textAlign: "center"}}>
           <Button color="primary" onClick={this.onSubmit} style={{marginTop: "3rem", marginBottom: "3rem", marginLeft:"1rem", marginRight:"1rem"}}>Check Your Soil</Button>
           <Button color="primary" onClick={this.onSubmitFire} style={{marginTop: "3rem", marginBottom: "3rem", marginLeft:"1rem", marginRight:"1rem"}}>Check for Fire</Button>
-          <Button color="primary" onClick={this.onSubmit} style={{marginTop: "3rem", marginBottom: "3rem", marginLeft:"1rem", marginRight:"1rem"}}>Check Your Soil</Button>
+          <Button color="primary" onClick={this.onSubmitPollen} style={{marginTop: "3rem", marginBottom: "3rem", marginLeft:"1rem", marginRight:"1rem"}}>Check For Pollen Grains</Button>
           <Button color="primary" onClick={this.onSubmit} style={{marginTop: "3rem", marginBottom: "3rem", marginLeft:"1rem", marginRight:"1rem"}}>Check Your Soil</Button>
           </div>
           
@@ -152,6 +184,27 @@ class Location extends React.Component {
       The corresponding FRP(Fire Radiative Power) is estimated to be around <strong>{this.state.frp} MW </strong>.  
       This data was recorded at the time <strong>{this.state.detect_time}. </strong>
       You do not need to worry in case of fire as well. Just follow these best practices as given
+    </Card.Text>
+    <Button variant="primary">Explore Best Practices</Button>
+  </Card.Body>
+</Card>
+          : null}
+
+          {this.state.grass_pollen!=="" ? 
+<Card style={{ width: '18rem', marginTop: "1rem", marginBottom: "2rem" }}>
+  <Card.Img variant="top" src="https://images.unsplash.com/photo-1614166495387-d09f5e26eb92?ixid=MnwxMjA3fDB8MHxzZWFyY2h8N3x8cG9sbGVufGVufDB8fDB8fA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" />
+  <Card.Body>
+    <Card.Title>General Pollen Info near you</Card.Title>
+    <hr />
+    <Card.Text>
+      The number of pollens(relative) per unit area in your farm is for <strong> grass pollen is {this.state.grass_pollen},
+      for tree pollen is {this.state.tree_pollen}, for weed pollen is {this.state.weed_pollen}. </strong>
+      The corresponding risk of pollen grains for various pollens near you farm are for <strong> grass pollen is 
+      {this.state.grass_pollen_risk}, for tree pollen is {this.state.tree_pollen_risk} and for weed pollen is 
+      {this.state.weed_pollen_risk}. </strong>  
+      This data was recorded at the time <strong>{this.state.pollen_time}. </strong>
+      The sole information is to make you aware about the floating pollen grains in your are of weed and you might need to plan weedicides
+      accordingly
     </Card.Text>
     <Button variant="primary">Explore Best Practices</Button>
   </Card.Body>
