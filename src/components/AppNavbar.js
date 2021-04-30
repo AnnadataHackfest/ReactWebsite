@@ -87,6 +87,9 @@ class AppNavbar extends React.Component {
                           <NavLink href="/modern" className="nav-link">
                             ModernFarming                         
                           </NavLink>
+                          <NavLink href="/sideIncome" className="nav-link">
+                          SideIncome
+                          </NavLink>
                           <NavLink href="/community" className="nav-link">
                             Community                        
                           </NavLink>

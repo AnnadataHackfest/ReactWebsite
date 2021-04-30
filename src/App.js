@@ -28,6 +28,7 @@ import Location from './components/Location';
 import Schemes from './components/Schemes';
 import ModernFarming from './components/ModernFarming';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import SideIncome from './components/SideIncome';
 import 'font-awesome/css/font-awesome.min.css';
 import './App.css';
 import { Container } from 'reactstrap';
@@ -110,6 +111,11 @@ class App extends React.Component {
           <Route path="/modern">
             <AppNavbar />
             <ModernFarming/>
+            <Footer />
+          </Route>
+          <Route path="/sideIncome">
+            <AppNavbar />
+            <SideIncome />
             <Footer />
           </Route>
           <Route path="/crop">

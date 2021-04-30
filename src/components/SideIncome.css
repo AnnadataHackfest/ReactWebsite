@@ -1,0 +1,23 @@
+.sideIncome{
+    padding: 1.5rem;
+    background-color: lightblue;
+    top: 0;
+}
+.sideIncome h1{
+    text-transform: uppercase;
+    color: green;
+}
+.sideIncome img{
+    width: 20rem;
+    height: 20rem;
+    margin-bottom: 2rem;
+}
+.sideIncome a{
+    text-transform: uppercase;
+    text-decoration: none;
+    padding: .2rem;
+}
+.sideIncome a:hover{
+    background-color: orange;
+    color: white;
+}
