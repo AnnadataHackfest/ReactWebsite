@@ -20,3 +20,5 @@ export const GET_INFOS = 'GET_INFOS';
 export const ADD_INFO = 'ADD_INFO';
 export const DELETE_INFO = 'DELETE_INFO';
 export const INFOS_LOADING = 'INFOS_LOADING';
+export const GET_SOIL = 'GET_SOIL';
+export const SOIL_LOADING = 'SOIL_LOADING';
