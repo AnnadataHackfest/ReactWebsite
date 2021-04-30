@@ -36,7 +36,9 @@ class Location extends React.Component {
         grass_pollen_risk: "",
         tree_pollen_risk: "",
         weed_pollen_risk: "",
-        pollen_time: ""
+        pollen_time: "",
+        water_time: "",
+        water_vapour: ""
       }
 
       this.onSubmit = this.onSubmit.bind(this);
@@ -128,6 +130,26 @@ onSubmitPollen = (e) => {
     });
 }
 
+onSubmitWater = (e) => {
+  const url = `https://api.ambeedata.com/waterVapor/latest/by-lat-lng?lat=${this.state.lat}&lng=${this.state.lng}`;
+  axios({
+    method: 'GET',
+    url: url,
+    headers: {
+      "x-api-key": "vbOFm1KGNhaoAIQM0KrSPaknrXIgMaoQdXSMKsd5"
+    }
+  })
+    .then(response => {
+      this.setState({
+        water_vapour: response.data.data[0].water_vapor,
+        water_time: response.data.data[0].createdAt
+      });
+    })
+    .catch(error => {
+      console.log('Data could not be fetched ', error);
+    });
+}
+
   static propTypes = {
       getSoil: PropTypes.func.isRequired,
       isAuthenticated: PropTypes.bool
@@ -154,11 +176,13 @@ onSubmitPollen = (e) => {
           <Button color="primary" onClick={this.onSubmit} style={{marginTop: "3rem", marginBottom: "3rem", marginLeft:"1rem", marginRight:"1rem"}}>Check Your Soil</Button>
           <Button color="primary" onClick={this.onSubmitFire} style={{marginTop: "3rem", marginBottom: "3rem", marginLeft:"1rem", marginRight:"1rem"}}>Check for Fire</Button>
           <Button color="primary" onClick={this.onSubmitPollen} style={{marginTop: "3rem", marginBottom: "3rem", marginLeft:"1rem", marginRight:"1rem"}}>Check For Pollen Grains</Button>
-          <Button color="primary" onClick={this.onSubmit} style={{marginTop: "3rem", marginBottom: "3rem", marginLeft:"1rem", marginRight:"1rem"}}>Check Your Soil</Button>
+          <Button color="primary" onClick={this.onSubmitWater} style={{marginTop: "3rem", marginBottom: "3rem", marginLeft:"1rem", marginRight:"1rem"}}>Check for Humidity</Button>
           </div>
+
+          <div style={{display: "flex"}}>
           
           {this.state.soil_temp!=="" ? 
-<Card style={{ width: '18rem', marginTop: "1rem", marginBottom: "2rem" }}>
+<Card style={{ width: '18rem', marginTop: "1rem", marginBottom: "2rem", marginLeft: "1rem", marginRight: "1rem" }}>
   <Card.Img variant="top" src="https://images.unsplash.com/photo-1510844355160-2fb07bf9af75?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8c29pbHxlbnwwfHwwfHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" />
   <Card.Body>
     <Card.Title>Your Soil</Card.Title>
@@ -174,7 +198,7 @@ onSubmitPollen = (e) => {
           : null}
 
           {this.state.confidence!=="" ? 
-<Card style={{ width: '18rem', marginTop: "1rem", marginBottom: "2rem" }}>
+<Card style={{ width: '18rem', marginTop: "1rem", marginBottom: "2rem", marginLeft: "1rem", marginRight: "1rem" }}>
   <Card.Img variant="top" src="https://images.unsplash.com/photo-1476455553758-5a8b16727e23?ixid=MnwxMjA3fDB8MHxzZWFyY2h8Njd8fGZpcmV8ZW58MHx8MHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" />
   <Card.Body>
     <Card.Title>Fire Chances in your Area</Card.Title>
@@ -191,7 +215,7 @@ onSubmitPollen = (e) => {
           : null}
 
           {this.state.grass_pollen!=="" ? 
-<Card style={{ width: '18rem', marginTop: "1rem", marginBottom: "2rem" }}>
+<Card style={{ width: '18rem', marginTop: "1rem", marginBottom: "2rem", marginLeft: "1rem", marginRight: "1rem" }}>
   <Card.Img variant="top" src="https://images.unsplash.com/photo-1614166495387-d09f5e26eb92?ixid=MnwxMjA3fDB8MHxzZWFyY2h8N3x8cG9sbGVufGVufDB8fDB8fA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" />
   <Card.Body>
     <Card.Title>General Pollen Info near you</Card.Title>
@@ -210,6 +234,25 @@ onSubmitPollen = (e) => {
   </Card.Body>
 </Card>
           : null}
+
+          {this.state.water_vapour!=="" ? 
+<Card style={{ width: '18rem', marginTop: "1rem", marginBottom: "2rem", marginLeft: "1rem", marginRight: "1rem" }}>
+  <Card.Img variant="top" src="https://images.unsplash.com/photo-1609609014985-bfd695dad544?ixid=MnwxMjA3fDB8MHxzZWFyY2h8NjB8fHNtb2tlfGVufDB8fDB8fA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" />
+  <Card.Body>
+    <Card.Title>Water Vapour Info in your atmosphere</Card.Title>
+    <hr />
+    <Card.Text>
+      The current amount of water vapour in the atmosphere near your area is <strong>{this.state.water_vapour} meters.</strong>
+      This data was recorded at the time <strong>{this.state.water_time}. </strong>
+      The sole information is to make you aware about the current atmospheric humidity in your atmosphere so that you plan on irrigation 
+      accordingly!
+    </Card.Text>
+    <Button variant="primary">Explore Best Practices</Button>
+  </Card.Body>
+</Card>
+          : null}
+
+          </div>
 
           </Container>
         </div>
