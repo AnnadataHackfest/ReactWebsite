@@ -1,14 +1,16 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-
+import {ProductProvider} from './components/Context';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import 'font-awesome/css/font-awesome.min.css';
 
 ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
+  <ProductProvider>
+    <React.StrictMode>
+      <App />
+    </React.StrictMode>
+  </ProductProvider>,
   document.getElementById('root')
 );
 

@@ -49,7 +49,6 @@ class FarmersAskFarmers extends React.Component {
                  </div>
                 </Alert>
                 ))}
-                    
                 </div>
         </Container>
       );
