@@ -52,25 +52,19 @@ const Crop = () => {
         
         </div>
         {data && (<div>
-          {/* <h2>Disease: {data.disease ? "true" : "false"}</h2>
-          {data.disease_name && (<h2>Disease Name: {data.disease_name}</h2>)}
-          <h2>plant Name: {data.plant_name}</h2> */}
-
-<Card style={{ width: '18rem' }}>
-  <Card.Body>
-    <Card.Text>
-      <p>Is your crop diseased: {data.disease ? "true" : "false"}</p><hr />
-      {data.disease_name && <p>Crop Disease Name: {data.disease_name}</p>}<hr />
-      <p>Plant Name: {data.plant_name}</p>
-    </Card.Text>
-    <Button variant="primary">See Precations</Button>
-  </Card.Body>
-</Card>
-
+          <h2>plant Name: {data.plant_name}</h2>
+          <h2>Disease: {data.disease ? "true" : "false"}</h2>
+          {data.disease_name && (<h2>Disease Name: {data.disease_name}</h2>)}          
         </div>)}
-
-
-
+        <br />
+        <Card style={{ width: '20rem', margin: 'auto'}}>
+          <Card.Img variant="top" src="https://res.cloudinary.com/annadata/image/upload/v1619869415/plantDiseaseDetected_juzeyf.png" height="200" width="200"/>
+          <Card.Body>
+            <h2>Plant Name: xyz</h2>
+            <h2>Disease: true</h2>
+            <h2>Disease Name: abc</h2>
+          </Card.Body>
+        </Card>
     </div>
     );
 }
