@@ -472,3 +472,20 @@ input[type="file"] {
   padding: 12px;
   border-radius: 27px;
 }
+
+.scroll-top {
+  cursor: pointer;
+  text-align: center;
+  font-size: 22px;
+  position: fixed;
+  width: 70px;
+  height: 70px;
+  line-height: 70px;
+  bottom: 20px;
+  right: 20px;
+  background: #4fa527;
+  color: #fff;
+  opacity: .7;
+  z-index: 9999;
+  border-radius: 50%;
+}

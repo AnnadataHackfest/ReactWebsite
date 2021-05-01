@@ -30,6 +30,7 @@ import CropSuggest from './components/CropSuggest'
 import ModernFarming from './components/ModernFarming';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import SideIncome from './components/SideIncome';
+import Scroll from './components/Scroll';
 import 'font-awesome/css/font-awesome.min.css';
 import './App.css';
 import { Container } from 'reactstrap';
@@ -57,32 +58,38 @@ class App extends React.Component {
             <CarouselPage />
             <Features />
             <Testimonial />
+            <Scroll />
             <Footer />
           </Route>
           <Route path="/about">
             <AppNavbar />
             <About />
+            <Scroll/>
             <Footer />
           </Route>
           <Route path="/community" exact>
             <AppNavbar />
             <QuestionModal />
             <FarmersAskFarmers />
+            <Scroll/>
             <Footer />
           </Route>
           <Route path="/community/answer" exact>
             <AppNavbar />
             <Infos />
+            <Scroll/>
             <Footer />
           </Route>
           <Route path="/soil">
             <AppNavbar />
             <Soil />
+            <Scroll/>
             <Footer />
           </Route>
           <Route path="/schemes">
             <AppNavbar />
             <Schemes />
+            <Scroll/>
             <Footer />
           </Route>
           <Route path="/buy">
@@ -103,31 +110,37 @@ class App extends React.Component {
               </Route>
               <Modal />
             </switch>
+            <Scroll/>
             <Footer />
           </Route>
           <Route path="/location">
             <AppNavbar />
             <Location />
+            <Scroll/>
             <Footer />
           </Route>
           <Route path="/modern">
             <AppNavbar />
             <ModernFarming/>
+            <Scroll/>
             <Footer />
           </Route>
           <Route path="/sideIncome">
             <AppNavbar />
             <SideIncome />
+            <Scroll/>
             <Footer />
           </Route>
           <Route path="/crop">
             <AppNavbar />
             <Crop/>
+            <Scroll/>
             <Footer />
           </Route>
           <Route path="/suggest" exact>
             <AppNavbar />
             <CropSuggest />
+            <Scroll/>
             <Footer />
           </Route>
         </Switch>
