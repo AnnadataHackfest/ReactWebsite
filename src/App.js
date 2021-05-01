@@ -26,6 +26,7 @@ import Soil from './components/Soil';
 import Crop from './components/Crop';
 import Location from './components/Location';
 import Schemes from './components/Schemes';
+import CropSuggest from './components/CropSuggest'
 import ModernFarming from './components/ModernFarming';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import SideIncome from './components/SideIncome';
@@ -122,6 +123,11 @@ class App extends React.Component {
           <Route path="/crop">
             <AppNavbar />
             <Crop/>
+            <Footer />
+          </Route>
+          <Route path="/suggest" exact>
+            <AppNavbar />
+            <CropSuggest />
             <Footer />
           </Route>
         </Switch>

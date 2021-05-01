@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import {Link} from 'react-router-dom';
 import {ProductConsumer} from './Context';
 import PropTypes from 'prop-types';
+
 import 'font-awesome/css/font-awesome.min.css';
 
 export default class Product extends Component{

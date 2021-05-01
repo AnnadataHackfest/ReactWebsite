@@ -75,6 +75,9 @@ class AppNavbar extends React.Component {
                           <NavLink href="/soil" className="nav-link">
                             Soil
                           </NavLink>
+                          <NavLink href="/suggest" className="nav-link">
+                            CropSuggest
+                          </NavLink>
                           <NavLink href="/schemes" className="nav-link">
                             Schemes                         
                           </NavLink>

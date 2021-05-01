@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import '../App.css';
 import axios from 'axios';
 import Button from 'react-bootstrap/Button';
+import Card from 'react-bootstrap/Card';
 
 const Crop = () => {
   const [selectedFile, setSelectedFile] = useState(null);
@@ -51,10 +52,25 @@ const Crop = () => {
         
         </div>
         {data && (<div>
-          <h2>Disease: {data.disease ? "true" : "false"}</h2>
+          {/* <h2>Disease: {data.disease ? "true" : "false"}</h2>
           {data.disease_name && (<h2>Disease Name: {data.disease_name}</h2>)}
-          <h2>plant Name: {data.plant_name}</h2>
+          <h2>plant Name: {data.plant_name}</h2> */}
+
+<Card style={{ width: '18rem' }}>
+  <Card.Body>
+    <Card.Text>
+      <p>Is your crop diseased: {data.disease ? "true" : "false"}</p><hr />
+      {data.disease_name && <p>Crop Disease Name: {data.disease_name}</p>}<hr />
+      <p>Plant Name: {data.plant_name}</p>
+    </Card.Text>
+    <Button variant="primary">See Precations</Button>
+  </Card.Body>
+</Card>
+
         </div>)}
+
+
+
     </div>
     );
 }

@@ -43,19 +43,19 @@ const About = () => {
     <Row>
       <Col>
         <img src={icon1} /><br/>
-        <span>Crop Disease Detection</span>
+        <span><strong>Crop Disease Detection</strong></span>
       </Col>
       <Col>
         <img src={icon2} /><br />
-        <span>Weather and All API support</span>
+        <span><strong>Weather and All API support</strong></span>
       </Col>
       <Col>
       <img src={icon3} /><br />
-      <span>Irrigation and Modern Techniques</span>
+      <span><strong>Irrigation and Modern Techniques</strong></span>
       </Col>
       <Col>
       <img src={icon4} /><br />
-      <span>Cross-Platform Application</span>
+      <span><strong>Cross-Platform Application</strong></span>
       </Col>
     </Row>
     </div>
