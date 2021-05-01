@@ -58,7 +58,6 @@ class AppNavbar extends React.Component {
             </NavItem>
             </div>
         )
-
         return (
           <div>
               <Navbar color="dark" dark expand="sm" className="mb-5 navbar-main">
@@ -85,7 +84,7 @@ class AppNavbar extends React.Component {
                             Buy
                           </NavLink>
                           <NavLink href="/location" className="nav-link">
-                            Location                         
+                            Location                
                           </NavLink>
                           <NavLink href="/modern" className="nav-link">
                             ModernFarming                         

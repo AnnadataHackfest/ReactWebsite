@@ -1,7 +1,7 @@
 import React from "react";
 import {Container, ListGroup, ListGroupItem, Button} from "reactstrap";
 import PropTypes from "prop-types";
-import Alert from 'react-bootstrap/Alert'
+import Alert from 'react-bootstrap/Alert';
 import {
   Modal,
   ModalHeader,
@@ -11,6 +11,7 @@ import {
   Label,
   Input
 } from "reactstrap";
+import axios from 'axios';
 
 class CropSuggest extends React.Component {
 
@@ -23,7 +24,8 @@ class CropSuggest extends React.Component {
     hum: "",
     ph: "",
     rain: "",
-    show: false
+    show: false,
+    crop: null
   }
 
     static propTypes = {
@@ -31,8 +33,6 @@ class CropSuggest extends React.Component {
         question: PropTypes.object.isRequired,
         isAuthenticated: PropTypes.bool
     }
-
- 
 
   toggle = () => {
     this.setState({
@@ -57,20 +57,58 @@ class CropSuggest extends React.Component {
       this.setState({
           show: true
       });
+      axios({
+        method: 'POST',
+        url: 'http://localhost:9000/predict',
+        data: {
+          n: this.state.n,
+          p: this.state.p,
+          k: this.state.k,
+          temp: this.state.temp,
+          hum: this.state.hum,
+          ph: this.state.ph,
+          rain: this.state.rain,
+        }
+      })
+        .then(response => {
+          console.log(response.data);
+          this.setState({
+            crop: response.data.crop
+          }); 
+        })
+        .catch(error => {
+          console.log('Error occured ', error);
+        }); 
+      this.setState({
+        show: false,
+        modal: false
+      }); 
   }
   
   render() {
       return (
         <Container>
-        <div style={{textAlign: "center", marginBottom: "2rem"}}><h2>Community needs you contribution, please help</h2></div>
+        <div style={{textAlign: "center", marginBottom: "2rem"}}>
+          <h2>Not sure which crop to grow? </h2><br/>
+          <h5>Submit your soil profile for crop suggestion</h5>
+        </div>
                 
                  <div className="d-flex justify-content-center">
                   <Button color="success" onClick={this.toggle}>Answer now</Button>{' '}
                  </div>
 
-                 {this.state.show ? <p>
-                     {this.state.n} {this.state.p} {this.state.k} {this.state.temp} {this.state.hum} {this.state.ph} {this.state.rain}
-                 </p> : null}
+                 <br/><br/><br/><br/>
+
+                 <div className='text-center' className = { this.state.crop ? "crop-suggest" : ''}>
+                 {this.state.crop ? <p>
+                    Best suitable crop for your soil is <span>{this.state.crop}</span>
+                  </p> : null}
+                 </div>
+                 
+                 
+                 <br/><br/><br/><br/>
+
+                 
                  
 
                 <Modal 
@@ -88,7 +126,7 @@ class CropSuggest extends React.Component {
                              type="text"
                              name="n"
                              id="n"
-                             placeholder="What you wanna talk about"
+                             placeholder="Ratio of nitrogen content in soil"
                              value={this.state.n}
                              style={{marginBottom: "1rem"}}
                              onChange={this.onChange}
@@ -99,7 +137,7 @@ class CropSuggest extends React.Component {
                              type="text"
                              name="p"
                              id="p"
-                             placeholder="What you wanna talk about"
+                             placeholder="Ratio of Phosphorus content in soil"
                              value={this.state.p}
                              style={{marginBottom: "1rem"}}
                              onChange={this.onChange}
@@ -110,51 +148,51 @@ class CropSuggest extends React.Component {
                              type="text"
                              name="k"
                              id="k"
-                             placeholder="What you wanna talk about"
+                             placeholder="Ratio of Potassium content in soil"
                              value={this.state.k}
                              style={{marginBottom: "1rem"}}
                              onChange={this.onChange}
                             />
 
-                            <Label for="item">temp</Label>
+                            <Label for="item">Temparature</Label>
                             <Input 
                              type="text"
                              name="temp"
                              id="temp"
-                             placeholder="What you wanna talk about"
+                             placeholder="Temparature in degree celsius"
                              value={this.state.temp}
                              style={{marginBottom: "1rem"}}
                              onChange={this.onChange}
                             />
 
-                            <Label for="item">Humidity</Label>
+                            <Label for="item">Relative Humidity</Label>
                             <Input 
                              type="text"
                              name="hum"
                              id="hum"
-                             placeholder="What you wanna talk about"
+                             placeholder="Relative humidity in percentage"
                              value={this.state.hum}
                              style={{marginBottom: "1rem"}}
                              onChange={this.onChange}
                             />
 
-                            <Label for="item">PH</Label>
+                            <Label for="item">pH</Label>
                             <Input 
                              type="text"
                              name="ph"
                              id="ph"
-                             placeholder="What you wanna talk about"
+                             placeholder="pH value of soil"
                              value={this.state.ph}
                              style={{marginBottom: "1rem"}}
                              onChange={this.onChange}
                             />
 
-                            <Label for="item">Rain</Label>
+                            <Label for="item">Rainfall</Label>
                             <Input 
                              type="text"
                              name="rain"
                              id="rain"
-                             placeholder="What you wanna talk about"
+                             placeholder="Rainfall in mm"
                              value={this.state.rain}
                              style={{marginBottom: "1rem"}}
                              onChange={this.onChange}

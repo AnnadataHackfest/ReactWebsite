@@ -20,6 +20,8 @@ Floriculture deals with the production of flowers and ornamental plants; general
 including lawn turf but particularly nursery crops such as shrubs, trees, and vines.
 </p>
             <a href= "https://en.wikipedia.org/wiki/Horticulture" target="_blank"><img src= "/img/horticulture.jpeg"></img></a>
+            <a href= "https://www.nal.usda.gov/topics/commercial-horticulture" target="_blank"><img src= "/img/horticulture-2.jpeg"></img></a>
+            <a href= "http://www.developmentnews.in/successful-cultivation-horticulture-crops/" target="_blank"><img src= "/img/horticulture-3.gif"></img></a>
         </div>
         <div className= "sideIncome__2">
             <h1>Animal Husbandry</h1>
@@ -35,7 +37,9 @@ including lawn turf but particularly nursery crops such as shrubs, trees, and vi
             of a perceived threat to livestock profits; for example, animal husbandry is responsible for up to 91% of the deforestation in the Amazon region.[81] In addition, livestock produce greenhouse gases. Cows produce some 570 million cubic metres of methane per day,[82] that accounts for from 35 to 
             40% of the overall methane emissions of the planet.<br></br>
              Livestock is responsible for 65% of all human-related emissions of the powerful and long-lived greenhouse gas nitrous oxide.[83]<br></br>
-<a href= "https://en.wikipedia.org/wiki/Animal_husbandry" target="_blank"><img src= "/img/husbandry.png"></img></a></p>
+<a href= "https://en.wikipedia.org/wiki/Animal_husbandry" target="_blank"><img src= "/img/husbandry.png"></img></a>
+<a href= "https://www.biovoicenews.com/india-uk-northern-ireland-to-cooperate-over-animal-husbandry-dairying-fisheries/" target="_blank"><img src= "/img/husbandry-2.jpeg"></img></a>
+<a href= "https://blog.nextias.com/guidelines-for-animal-husbandry-infrastructure-development-fund" target="_blank"><img src= "/img/husbandry-3.webp"></img></a></p>
         </div>
         <div className= "sideIncome__3">
             <h1>Bee keeping</h1>
@@ -47,7 +51,9 @@ including lawn turf but particularly nursery crops such as shrubs, trees, and vi
             tremendous due to its diverse environment and inexhaustible floral resources obtained from natural vegetation and cultivated crops. According to recent statistics, about 50 million hectares of land is under the cultivation of oilseeds, pulses, orchards and other crops useful to 
             bees and benefitted by bee pollination. In addition, there is about 60 million hectares of forest area with beekeeping potential. 
             This vast area of agriculture and forest may easily sustain at least one crore bee colonies.<br></br>
-            <a href= "https://en.wikipedia.org/wiki/Beekeeping" target="_blank"><img src= "/img/bee.jpeg"></img></a></p>
+            <a href= "https://en.wikipedia.org/wiki/Beekeeping" target="_blank"><img src= "/img/bee.jpeg"></img></a>
+            <a href= "https://www.thespruce.com/beekeeping-for-beginners-step-by-step-3016540" target="_blank"><img src= "/img/bee-2.jpeg"></img></a>
+            <a href= "https://www.apglearning.in/online-courses/opportunity-in-beekeeping/" target="_blank"><img src= "/img/bee-3.jpeg"></img></a></p>
         </div>
         </div>
     )

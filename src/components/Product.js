@@ -19,9 +19,7 @@ export default class Product extends Component{
                     <Link to= "/buy/details">
                         <img src= {img} alt="product" className= "card-img-top" height="200" width="400" />
                     </Link>
-                    
               </div>
-            
               <div className= "card-footer d-flex justify-contents-between">
                     <p className= "align-self-center mb-0" style={{marginRight: '20'}}>
                         {title}
