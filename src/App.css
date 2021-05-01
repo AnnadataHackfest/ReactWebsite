@@ -29,7 +29,7 @@
   color: wheat;
 }
 .first-nav {
-  margin-left: 18rem;
+  margin-left: 23rem;
 }
 .nav-fragment {
   display: flex;
@@ -339,11 +339,11 @@
   display: block;
   width: 100%;
   min-height: 60vh;
-  background: #34495e;
-  color: rgba(255, 255, 255, 0.7);
+  background: #baffbf;
+  color: #000;
   text-align: left;
   position: relative;
-  padding: 150px 10% 50px 10%;
+  padding: 30px 10% 30px 10%;
   margin-bottom: 2rem;
 }
 
@@ -380,12 +380,12 @@
 }
 
 .about_us > .mission{
-  color: rgba(255, 255, 255, 1);
+  color: #000;
   display: blcok;
   width: 60%;
   box-sizing: border-box;
   border-radius: 10px;
-  background-color: rgba(92,188,224,0.4);
+  background-color:#fff;
   margin-left: 20%;
   padding: 5px 10px; 
 
@@ -401,7 +401,7 @@
 }
 .about_us > .mission > p{
   display: block;
-  color: rgba(255, 255, 255, 1);
+  color: #000;
   margin: 0 auto 10px;
   text-align: center;
   font-weight: 500;
@@ -443,3 +443,11 @@
   color: var(--mainYellow);
 }
 /* about page ends */
+
+.navbar-brand {
+  margin-left: -108px !important;
+}
+
+input[type="file"] {
+  display: none !important;
+}
