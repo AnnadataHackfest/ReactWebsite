@@ -339,11 +339,11 @@
   display: block;
   width: 100%;
   min-height: 60vh;
-  background: #34495e;
-  color: rgba(255, 255, 255, 0.7);
+  background: #baffbf;
+  color: #000;
   text-align: left;
   position: relative;
-  padding: 150px 10% 50px 10%;
+  padding: 30px 10% 30px 10%;
   margin-bottom: 2rem;
 }
 
