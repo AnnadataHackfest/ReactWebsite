@@ -1,174 +1,7 @@
-// import React from 'react';
-// import '../App.css';
-// import axios from 'axios';
-// import Container from 'react-bootstrap/Container';
-// import Row from 'react-bootstrap/Row';
-// import Col from 'react-bootstrap/Col';
-// import Card from 'react-bootstrap/Card';
-// import Button from 'react-bootstrap/Button';
-// import {
-//     Modal,
-//     ModalHeader,
-//     ModalBody,
-//     Form,
-//     FormGroup,
-//     Label,
-//     Input
-// } from "reactstrap";
-
-//   class CropSuggest extends React.Component {
-//     state = {
-//         modal: false,
-//         n: "",
-//         p: "",
-//         k: "",
-//         temp: "",
-//         humidity: "",
-//         ph: "",
-//         rain: ""
-//     }
-
-//     toggle = () => {
-//         this.setState({
-//             modal: !this.state.modal
-//         });
-//         console.log(this.state.modal);
-//     }
-
-//     onSubmit = (e) => {
-//         console.log(this.state.n);
-//         console.log(this.state.p);
-//         console.log(this.state.k);
-//         console.log(this.state.temp);
-//         console.log(this.state.humidity);
-//         console.log(this.state.ph);
-//         console.log(this.state.rain);
-//     }
-
-//     onChange = (e) => {
-//         this.setState({ [e.target.name]: e.target.value });
-//     }
-    
-//     render() {
-//     return (
-//       <div>
-//       <Container>
-//                 <div style={{textAlign: "center"}}>
-//                 <h3>
-//                 Add the general information of your area and get personalised and Artificially intelligent suggestions
-//                 on which crop you should grow on to maximize tyour profit
-//                 </h3>
-//                 <Button onclick={this.toggle}>Feed Info</Button>
-//                 </div>
-//             </Container>
-//                 <Modal 
-//                  isOpen={this.state.modal}
-//                  toggle={this.toggle}
-//                 >
-//                 <ModalHeader toggle={this.toggle}>Brief Info of Your Area</ModalHeader>
-//                 <ModalBody>
-//                     <Form onSubmit={this.onSubmit}>
-//                         <FormGroup>
-
-//                             <Label for="item">Approx Nitrogen Content</Label>
-//                             <Input 
-//                              type="text"
-//                              name="n"
-//                              id="n"
-//                              placeholder="Nirogen Content"
-//                              value={this.state.n}
-//                              style={{marginBottom: "1rem"}}
-//                              onChange={this.onChange}
-//                             />
-
-//                             <Label for="item">Approx Phosphorus Content</Label>
-//                             <Input 
-//                              type="text"
-//                              name="p"
-//                              id="p"
-//                              placeholder="Phospohorus Content"
-//                              value={this.state.p}
-//                              onChange={this.onChange}
-//                              style={{marginBottom: "1rem"}}
-//                             />
-
-//                             <Label for="item">Approx Potassium Content</Label>
-//                             <Input 
-//                              type="text"
-//                              name="k"
-//                              id="k"
-//                              placeholder="Potassium Content"
-//                              value={this.state.k}
-//                              onChange={this.onChange}
-//                              style={{marginBottom: "1rem"}}
-//                             />
-
-//                             <Label for="item">Average Temperature</Label>
-//                             <Input 
-//                              type="text"
-//                              name="temp"
-//                              id="temp"
-//                              placeholder="Average Temperature in Your Area"
-//                              value={this.state.temp}
-//                              onChange={this.onChange}
-//                              style={{marginBottom: "1rem"}}
-//                             />
-
-//                             <Label for="item">Average Humidity</Label>
-//                             <Input 
-//                              type="text"
-//                              name="humidity"
-//                              id="humidity"
-//                              placeholder="Average Humidity in Your Area"
-//                              value={this.state.humidity}
-//                              onChange={this.onChange}
-//                              style={{marginBottom: "1rem"}}
-//                             />
-
-//                             <Label for="item">PH Value of the Soil</Label>
-//                             <Input 
-//                              type="text"
-//                              name="ph"
-//                              id="ph"
-//                              placeholder="Approx PH value of the Soil"
-//                              value={this.state.ph}
-//                              onChange={this.onChange}
-//                              style={{marginBottom: "1rem"}}
-//                             />
-
-//                             <Label for="item">Average RainFall</Label>
-//                             <Input 
-//                              type="text"
-//                              name="rain"
-//                              id="rain"
-//                              placeholder="Approx Rainfall in your area"
-//                              value={this.state.rain}
-//                              onChange={this.onChange}
-//                              style={{marginBottom: "1rem"}}
-//                             />
-
-//                             <Button
-//                              color="dark"
-//                              style={{marginTop: "2rem"}}
-//                              onSubmit={this.onSubmit}
-//                              block
-//                             >Submit</Button>
-//                         </FormGroup>
-//                     </Form>
-//                 </ModalBody>
-//             </Modal>
-
-            
-//       </div>
-//     );
-//     }
-// }
-// export default CropSuggest;
-
 import React from "react";
 import {Container, ListGroup, ListGroupItem, Button} from "reactstrap";
 import PropTypes from "prop-types";
-import Alert from 'react-bootstrap/Alert'
+import Alert from 'react-bootstrap/Alert';
 import {
   Modal,
   ModalHeader,
@@ -178,6 +11,7 @@ import {
   Label,
   Input
 } from "reactstrap";
+import axios from 'axios';
 
 class CropSuggest extends React.Component {
 
@@ -190,7 +24,8 @@ class CropSuggest extends React.Component {
     hum: "",
     ph: "",
     rain: "",
-    show: false
+    show: false,
+    crop: null
   }
 
     static propTypes = {
@@ -198,8 +33,6 @@ class CropSuggest extends React.Component {
         question: PropTypes.object.isRequired,
         isAuthenticated: PropTypes.bool
     }
-
- 
 
   toggle = () => {
     this.setState({
@@ -224,20 +57,58 @@ class CropSuggest extends React.Component {
       this.setState({
           show: true
       });
+      axios({
+        method: 'POST',
+        url: 'http://localhost:9000/predict',
+        data: {
+          n: this.state.n,
+          p: this.state.p,
+          k: this.state.k,
+          temp: this.state.temp,
+          hum: this.state.hum,
+          ph: this.state.ph,
+          rain: this.state.rain,
+        }
+      })
+        .then(response => {
+          console.log(response.data);
+          this.setState({
+            crop: response.data.crop
+          }); 
+        })
+        .catch(error => {
+          console.log('Error occured ', error);
+        }); 
+      this.setState({
+        show: false,
+        modal: false
+      }); 
   }
   
   render() {
       return (
         <Container>
-        <div style={{textAlign: "center", marginBottom: "2rem"}}><h2>Community needs you contribution, please help</h2></div>
+        <div style={{textAlign: "center", marginBottom: "2rem"}}>
+          <h2>Not sure which crop to grow? </h2><br/>
+          <h5>Submit your soil profile for crop suggestion</h5>
+        </div>
                 
                  <div className="d-flex justify-content-center">
                   <Button color="success" onClick={this.toggle}>Answer now</Button>{' '}
                  </div>
 
-                 {this.state.show ? <p>
-                     {this.state.n} {this.state.p} {this.state.k} {this.state.temp} {this.state.hum} {this.state.ph} {this.state.rain}
-                 </p> : null}
+                 <br/><br/><br/><br/>
+
+                 <div className='text-center' className = { this.state.crop ? "crop-suggest" : ''}>
+                 {this.state.crop ? <p>
+                    Best suitable crop for your soil is <span>{this.state.crop}</span>
+                  </p> : null}
+                 </div>
+                 
+                 
+                 <br/><br/><br/><br/>
+
+                 
                  
 
                 <Modal 
@@ -255,7 +126,7 @@ class CropSuggest extends React.Component {
                              type="text"
                              name="n"
                              id="n"
-                             placeholder="What you wanna talk about"
+                             placeholder="Ratio of nitrogen content in soil"
                              value={this.state.n}
                              style={{marginBottom: "1rem"}}
                              onChange={this.onChange}
@@ -266,7 +137,7 @@ class CropSuggest extends React.Component {
                              type="text"
                              name="p"
                              id="p"
-                             placeholder="What you wanna talk about"
+                             placeholder="Ratio of Phosphorus content in soil"
                              value={this.state.p}
                              style={{marginBottom: "1rem"}}
                              onChange={this.onChange}
@@ -277,51 +148,51 @@ class CropSuggest extends React.Component {
                              type="text"
                              name="k"
                              id="k"
-                             placeholder="What you wanna talk about"
+                             placeholder="Ratio of Potassium content in soil"
                              value={this.state.k}
                              style={{marginBottom: "1rem"}}
                              onChange={this.onChange}
                             />
 
-                            <Label for="item">temp</Label>
+                            <Label for="item">Temparature</Label>
                             <Input 
                              type="text"
                              name="temp"
                              id="temp"
-                             placeholder="What you wanna talk about"
+                             placeholder="Temparature in degree celsius"
                              value={this.state.temp}
                              style={{marginBottom: "1rem"}}
                              onChange={this.onChange}
                             />
 
-                            <Label for="item">Humidity</Label>
+                            <Label for="item">Relative Humidity</Label>
                             <Input 
                              type="text"
                              name="hum"
                              id="hum"
-                             placeholder="What you wanna talk about"
+                             placeholder="Relative humidity in percentage"
                              value={this.state.hum}
                              style={{marginBottom: "1rem"}}
                              onChange={this.onChange}
                             />
 
-                            <Label for="item">PH</Label>
+                            <Label for="item">pH</Label>
                             <Input 
                              type="text"
                              name="ph"
                              id="ph"
-                             placeholder="What you wanna talk about"
+                             placeholder="pH value of soil"
                              value={this.state.ph}
                              style={{marginBottom: "1rem"}}
                              onChange={this.onChange}
                             />
 
-                            <Label for="item">Rain</Label>
+                            <Label for="item">Rainfall</Label>
                             <Input 
                              type="text"
                              name="rain"
                              id="rain"
-                             placeholder="What you wanna talk about"
+                             placeholder="Rainfall in mm"
                              value={this.state.rain}
                              style={{marginBottom: "1rem"}}
                              onChange={this.onChange}

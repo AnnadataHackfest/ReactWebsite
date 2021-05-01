@@ -462,3 +462,13 @@
 input[type="file"] {
   display: none !important;
 }
+
+.crop-suggest {
+  background: #0089ff;
+  width: fit-content;
+  margin: auto;
+  color: white;
+  font-size: 23px;
+  padding: 12px;
+  border-radius: 27px;
+}
