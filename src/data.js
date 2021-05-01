@@ -6,9 +6,9 @@ https://www.iconfinder.com/Makoto_msk */
 export const storeProducts = [
   {
     id: 1,
-    title: "Tractor-1",
+    title: "item1",
     img: "img/product-16.jpeg",
-    price: 10,
+    price: 1000,
     company: "mahindra",
     info:
       "Lorem ipsum dolor amet offal butcher quinoa sustainable gastropub, echo park actually green juice sriracha paleo. Brooklyn sriracha semiotics, DIY coloring book mixtape craft beer sartorial hella blue bottle. Tote bag wolf authentic try-hard put a bird on it mumblecore. Unicorn lumbersexual master cleanse blog hella VHS, vaporware sartorial church-key cardigan single-origin coffee lo-fi organic asymmetrical. Taxidermy semiotics celiac stumptown scenester normcore, ethical helvetica photo booth gentrify.",
@@ -18,9 +18,9 @@ export const storeProducts = [
   },
   {
     id: 2,
-    title: "Tractor-2",
+    title: "item2",
     img: "img/product-15.jpeg",
-    price: 16,
+    price: 160,
     company: "mahindra",
     info:
       "Lorem ipsum dolor amet offal butcher quinoa sustainable gastropub, echo park actually green juice sriracha paleo. Brooklyn sriracha semiotics, DIY coloring book mixtape craft beer sartorial hella blue bottle. Tote bag wolf authentic try-hard put a bird on it mumblecore. Unicorn lumbersexual master cleanse blog hella VHS, vaporware sartorial church-key cardigan single-origin coffee lo-fi organic asymmetrical. Taxidermy semiotics celiac stumptown scenester normcore, ethical helvetica photo booth gentrify.",
@@ -30,7 +30,7 @@ export const storeProducts = [
   },
   {
     id: 3,
-    title: "tractor-3",
+    title: "item3",
     img: "img/product-14.jpeg",
     price: 8,
     company: "mahindra",
@@ -42,7 +42,7 @@ export const storeProducts = [
   },
   {
     id: 4,
-    title: "Tractor-4",
+    title: "item4",
     img: "img/product-13.png",
     price: 18,
     company: "htc",
@@ -54,7 +54,7 @@ export const storeProducts = [
   },
   {
     id: 5,
-    title: "tractor-5",
+    title: "item5",
     img: "img/product-12.jpeg",
     price: 24,
     company: "htc",
@@ -78,7 +78,7 @@ export const storeProducts = [
   },
   {
     id: 7,
-    title: "Tractor",
+    title: "item6",
     img: "img/product-10.png",
     price: 30,
     company: "mahindra",
@@ -104,7 +104,7 @@ export const storeProducts = [
 
 export const detailProduct = {
   id: 1,
-  title: "Google Pixel - Black",
+  title: "item7",
   img: "img/product-1.png",
   price: 10,
   company: "google",
