@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import '../App.css';
 import axios from 'axios';
+import Button from 'react-bootstrap/Button';
+
 const Crop = () => {
   const [selectedFile, setSelectedFile] = useState(null);
   const [data, setData] = useState(null);
@@ -27,12 +29,26 @@ const Crop = () => {
 
     return (
         <div className="about_us">
-        <h2>KNOW YOUR Crop</h2>
+        <h2 style={{color: "black"}} className="text-center">KNOW YOUR CROP</h2>
         <div className="mission">
-        <span>MISSION</span>
-        <p>We use artificial intelligence to predict the crop disease that can degrade agricultural output.</p>
-        <input type= "file" onChange= {fileSelectedHandler} />
-        <button onClick= {fileUploadHandler}>upload</button>
+        <span>Doubt of Plant Disease?</span>
+        <p>We use artificial intelligence to predict the crop disease that can degrade agricultural output.
+          Upload the plant image to be scanned by our machine learning model and get information about plant disease and remedies.
+        </p>
+        <br />
+        <label for="file-upload" class="custom-file-upload btn btn-primary rounded-button">
+                                <i class="fa fa-cloud-upload"></i> Upload Plant Image
+                            </label>
+      
+        <input id="file-upload" type="file" onChange= {fileSelectedHandler} />
+        {/* <input type= "file" onChange= {fileSelectedHandler} /> */}
+        {/* <button onClick= {fileUploadHandler}>upload</button> */}
+        <br />
+        <br />
+        <div className="text-center">
+        <Button variant="success" onClick= {fileUploadHandler}>Submit</Button>
+      </div>
+        
         </div>
         {data && (<div>
           <h2>Disease: {data.disease ? "true" : "false"}</h2>
