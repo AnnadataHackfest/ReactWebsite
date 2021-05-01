@@ -102,6 +102,7 @@ class App extends React.Component {
               </Route>
               <Modal />
             </switch>
+            <Footer />
           </Route>
           <Route path="/location">
             <AppNavbar />

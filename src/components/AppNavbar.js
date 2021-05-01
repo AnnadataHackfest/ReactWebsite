@@ -37,11 +37,11 @@ class AppNavbar extends React.Component {
 
         const authLinks = (
             <div className="nav-fragment">
-            {/* <NavItem>
+            <NavItem>
                 <span className="navbar-text mr-3">
-                    <strong>{user ? `Welcome ${user.name.split(' ').slice(0, -1).join(' ')}` : null}</strong>
+                    <strong>{user ? `${user.name.split(' ').slice(0, -1).join(' ')}` : null}</strong>
                 </span>
-            </NavItem> */}
+            </NavItem>
               <NavItem>
                 <Logout />
             </NavItem>

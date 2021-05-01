@@ -3,6 +3,8 @@ import styled from 'styled-components';
 import {Link} from 'react-router-dom';
 import {ProductConsumer} from './Context';
 import PropTypes from 'prop-types';
+import 'font-awesome/css/font-awesome.min.css';
+
 export default class Product extends Component{
     render(){
         const { id, title, img, price, inCart } = this.props.product;
@@ -29,7 +31,7 @@ export default class Product extends Component{
                         value.addToCart(id);
                         value.openModal(id);
                     }}>
-                    {inCart?(<p className= "text-capitalize mb-0" disabled>in inCart</p>):(<i className= "fas fa-plus"></i>)}
+                    {inCart ? <p className= "text-capitalize mb-0" disabled>In Cart</p> : <i className= "fas fa-plus"></i>}
                     </button>
               </div>
             {/* </div> */}
