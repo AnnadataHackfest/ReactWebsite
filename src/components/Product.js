@@ -19,7 +19,7 @@ export default class Product extends Component{
                         value.addToCart(id);
                         value.openModal(id);
                     }}>
-                    {inCart?(<p className= "text-capitalize mb-0" disabled>in inCart</p>):(<i className= "fas fa-cart-plus"></i>)}
+                    {inCart?(<p className= "text-capitalize mb-0" disabled>in inCart</p>):(<i className= "fas fa-plus"></i>)}
                     </button>
             </div>)}
             </ProductConsumer>

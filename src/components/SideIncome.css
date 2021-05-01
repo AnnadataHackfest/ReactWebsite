@@ -10,14 +10,11 @@
 .sideIncome img{
     width: 20rem;
     height: 20rem;
-    margin-bottom: 2rem;
+    margin: 2rem;
+    box-shadow: 0 1.5rem 2rem rgba(0, 0, 0, 0.6);
+    transition: all .2s;
 }
-.sideIncome a{
-    text-transform: uppercase;
-    text-decoration: none;
-    padding: .2rem;
-}
-.sideIncome a:hover{
-    background-color: orange;
-    color: white;
+.sideIncome img:hover{
+    box-shadow: 0 .5rem 1rem rgba(0, 0, 0, 0.15);
+    transform: translateY(-0.2rem);
 }
