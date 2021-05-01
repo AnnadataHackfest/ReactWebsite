@@ -227,7 +227,7 @@ onSubmitAir = (e) => {
       moisture content is <strong>{this.state.soil_moist}%</strong>. 
       Keep good care of your soil and water it regularly
     </Card.Text>
-    <Button variant="primary">Explore Best Practices</Button>
+    <a href="/community"><Button variant="primary">Explore Best Practices</Button></a>
   </Card.Body>
 </Card>
           : null}
@@ -244,7 +244,7 @@ onSubmitAir = (e) => {
       This data was recorded at the time <strong>{this.state.detect_time}. </strong>
       You do not need to worry in case of fire as well. Just follow these best practices as given
     </Card.Text>
-    <Button variant="primary">Explore Best Practices</Button>
+    <a href="/community"><Button variant="primary">Explore Best Practices</Button></a>
   </Card.Body>
 </Card>
           : null}
@@ -265,7 +265,7 @@ onSubmitAir = (e) => {
       The sole information is to make you aware about the floating pollen grains in your are of weed and you might need to plan weedicides
       accordingly
     </Card.Text>
-    <Button variant="primary">Explore Best Practices</Button>
+    <a href="/community"><Button variant="primary">Explore Best Practices</Button></a>
   </Card.Body>
 </Card>
           : null}
@@ -282,7 +282,7 @@ onSubmitAir = (e) => {
       The sole information is to make you aware about the current atmospheric humidity in your atmosphere so that you plan on irrigation 
       accordingly!
     </Card.Text>
-    <Button variant="primary">Explore Best Practices</Button>
+    <a href="/community"><Button variant="primary">Explore Best Practices</Button></a>
   </Card.Body>
 </Card>
           : null}
@@ -300,7 +300,7 @@ onSubmitAir = (e) => {
       The amount of <strong>PM2 particles is {this.state.pm10}. The AQI suggests that the air around you is {this.state.aqiInfo}. </strong>
       The sole information is to make you aware about the current air composition arounf you and thus take caution measures as required!
     </Card.Text>
-    <Button variant="primary">Explore Best Practices</Button>
+    <a href="/community"><Button variant="primary">Explore Best Practices</Button></a>
   </Card.Body>
 </Card>
           : null}

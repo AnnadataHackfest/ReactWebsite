@@ -2,6 +2,9 @@ import React, { Component } from 'react';
 import {Link} from 'react-router-dom';
 import logo from '../logo.svg';
 import styled from 'styled-components';
+
+import 'font-awesome/css/font-awesome.min.css';
+
 export default class Navbar extends Component{
     render(){
         return(
@@ -20,7 +23,7 @@ https://www.iconfinder.com/Makoto_msk */}
                 <Link to= "/buy/cart" className= "ml-auto">
                     <ButtonContainer>
                     <span className= "mr-2">
-                        <i className= "fas fa-cart-plus"></i>
+                        <i className= "fa fa-cart-plus"></i>
                     </span>
                         My Cart
                     </ButtonContainer>

@@ -1,4 +1,4 @@
-.sideIncome{
+/* .sideIncome{
     padding: 1.5rem;
     background-image: linear-gradient(to right bottom, white, whitesmoke);
     margin-top: 0;
@@ -18,17 +18,17 @@
     color: black;
     background-color: lightgreen;
     transition: all .2s;
-}
-.sideIncome img{
+} */
+.side-img{
     height: 15rem;
     width: 20rem;
     border-radius: .5rem;
     margin-left: 5rem;
-    box-shadow: 0 1.5rem 2rem rgba(0, 0, 0, 0.6);
+    box-shadow: 0 1rem 1rem rgba(0, 0, 0, 0.6);
     transition: all .2s;
 }
-.sideIncome img:hover{
+.side-img:hover{
     box-shadow: 0 .5rem 1rem rgba(0, 0, 0, 0.15);
     transform: translateY(-0.2rem);
-    filter: blur(3px) brightness(80%);
+    filter: blur(1px) brightness(90%);
 }
