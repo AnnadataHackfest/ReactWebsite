@@ -26,12 +26,12 @@ export default class Product extends Component{
                         {title}
                     </p>
                     <h5 className= "text-blue font-italic mb-0">&nbsp; Rs {price}</h5>
-                    <button className= "cart-btn" disabled= {inCart?true:false} style={{marginLeft: 50}} 
+                    <button className= "cart-btn" disabled= {inCart?true:false} style={{marginLeft: 20}} 
                     onClick= {()=>{
                         value.addToCart(id);
                         value.openModal(id);
                     }}>
-                    {inCart ? <p className= "text-capitalize mb-0" disabled>In Cart</p> : <i className= "fas fa-plus"></i>}
+                    {inCart ? <p className= "text-capitalize mb-0" disabled>In Cart</p> : <i className= "fa fa-cart-plus"></i>}
                     </button>
               </div>
             {/* </div> */}
