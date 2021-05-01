@@ -7,6 +7,12 @@ import Col from 'react-bootstrap/Col';
 import Card from 'react-bootstrap/Card';
 import Button from 'react-bootstrap/Button';
 import '../App.css';
+import arc from '../images/arc.jpg';
+import icon1 from '../images/icon1.png';
+import icon2 from '../images/icon2.png';
+import icon3 from '../images/icon3.png';
+import icon4 from '../images/icon4.png';
+import icon5 from '../images/icon5.png';
 
 const About = () => {
   return (
@@ -36,19 +42,19 @@ const About = () => {
     <div><h3 style={{textAlign: "center", marginBottom: "2rem", marginTop: "2rem"}}><strong> Range of features that we provide </strong></h3>
     <Row>
       <Col>
-        <img src="https://fasal.co/images/Group%2016521.png" /><br/>
+        <img src={icon1} /><br/>
         <span>Crop Disease Detection</span>
       </Col>
       <Col>
-        <img src="https://fasal.co/images/Group%2016520.png" /><br />
+        <img src={icon2} /><br />
         <span>Weather and All API support</span>
       </Col>
       <Col>
-      <img src="https://fasal.co/images/Group%2016522.png" /><br />
+      <img src={icon3} /><br />
       <span>Irrigation and Modern Techniques</span>
       </Col>
       <Col>
-      <img src="https://fasal.co/images/Group%2016523.png" /><br />
+      <img src={icon4} /><br />
       <span>Cross-Platform Application</span>
       </Col>
     </Row>
@@ -58,7 +64,7 @@ const About = () => {
     <div><h3 style={{textAlign: "center", marginBottom: "2rem", marginTop: "2rem"}}><strong> How Annadata Works </strong></h3>
     <Row style={{marginTop: "3rem", marginBottom: "3rem"}}>
       <Col>
-      <img src="https://fasal.co/images/Group%2016515.png" width="500px" height="700px" />
+      <img src={arc} width="500px" height="500px" />
       </Col>
       <Col>
         <div>
@@ -103,7 +109,7 @@ const About = () => {
         </div>
       </Col>
       <Col>
-      <img src="https://fasal.co/images/Group%2014945.png" width="600px" height="400px" />
+      <img src={icon5} width="600px" height="400px" />
       </Col>
       
     </Row>
