@@ -33,7 +33,7 @@ const About = () => {
     </p> */}
     <div style={{textAlign: "center", marginBottom:"3rem"}}><h3><strong>Who We Are</strong></h3></div>
     <Container>
-    <div><h6>We are a dynamic group of people dedicated to serve the backbone of our nation, our Annadarta.
+    <div><h6>We are a dynamic group of people dedicated to serve the backbone of our nation, our Annadata.
     to ensure that they get benefitted from the very best technology available in modern times and take benefit of
     modern technologies which would enable them to grow more and more  </h6>
     </div>

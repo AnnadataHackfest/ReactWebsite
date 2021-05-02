@@ -9,7 +9,7 @@ const Footer = () => {
 
 			<div className="footer-left">
 
-				<h3>Anna<span>Data</span></h3>
+				<h3>Anna<span>data</span></h3>
 
 				<p className="footer-links">
 					<a href="/" className="link-1">Home</a>
@@ -37,12 +37,12 @@ const Footer = () => {
 
 				<div>
 					<i className="fa fa-phone"></i>
-					<p>+00-000000000</p>
+					<p>+14246257905</p>
 				</div>
 
 				<div>
 					<i className="fa fa-envelope"></i>
-					<p><a href="mailto:support@company.com">support@company.com</a></p>
+					<p><a href="mailto:help.annadata@gmail.com">help.annadata@gmail.com</a></p>
 				</div>
 
 			</div>

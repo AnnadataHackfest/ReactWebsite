@@ -71,9 +71,9 @@ class AppNavbar extends React.Component {
                           <NavLink href="/crop" className="nav-link" >
                             Crop                          
                           </NavLink>
-                          <NavLink href="/soil" className="nav-link">
+                          {/* <NavLink href="/soil" className="nav-link">
                             Soil
-                          </NavLink>
+                          </NavLink> */}
                           <NavLink href="/suggest" className="nav-link">
                             CropSuggest
                           </NavLink>
@@ -81,7 +81,7 @@ class AppNavbar extends React.Component {
                             Schemes                         
                           </NavLink>
                           <NavLink href="/buy" className="nav-link">
-                            Buy
+                            Shop
                           </NavLink>
                           <NavLink href="/location" className="nav-link">
                             Location                

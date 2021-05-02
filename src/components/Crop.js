@@ -42,6 +42,7 @@ const Crop = () => {
                             </label>
       
         <input id="file-upload" type="file" onChange= {fileSelectedHandler} />
+        {selectedFile ? selectedFile.name : null}
         {/* <input type= "file" onChange= {fileSelectedHandler} /> */}
         {/* <button onClick= {fileUploadHandler}>upload</button> */}
         <br />
