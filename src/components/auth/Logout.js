@@ -6,13 +6,13 @@ import PropTypes from 'prop-types';
 
 export class Logout extends Component {
   static propTypes = {
-    logout: PropTypes.func.isRequired
+    logout: PropTypes.func.isRequired,
   };
 
   render() {
     return (
       <Fragment>
-        <NavLink onClick={this.props.logout} href='#'>
+        <NavLink onClick={this.props.logout} href="#">
           Logout
         </NavLink>
       </Fragment>
@@ -20,7 +20,4 @@ export class Logout extends Component {
   }
 }
 
-export default connect(
-  null,
-  { logout }
-)(Logout);
+export default connect(null, { logout })(Logout);

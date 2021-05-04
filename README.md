@@ -1,4 +1,78 @@
-# Getting Started with Create React App
+# Annadata Website
+
+[![code style: prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg?style=flat-square)](https://github.com/prettier/prettier)
+![MIT](https://img.shields.io/github/license/AnnadataHackfest/ReactWebsite?color=blue)
+
+## Getting Started
+
+These instructions will get you a copy of the project up and running on your local machine for development and testing purposes.
+
+### Prerequisites
+
+Your machine should have Npm (or Yarn) installed to use it locally.
+
+## Setup and Installation
+
+### Setting up the repository locally
+
+1. First fork the repo :fork_and_knife: to your account.  
+   Go to the forked repo and clone it :busts_in_silhouette: to your local machine:
+
+```sh
+git clone https://github.com/Your_Username/ReactWebsite.git
+```
+
+This will make a copy of the code to your local machine.
+
+2. Now move to the `ReactWebsite` directory.
+
+```sh
+cd ReactWebsite
+```
+
+3. Now check the remote of your local code by:
+
+```sh
+git remote -v
+```
+
+The response should look like:
+
+```sh
+origin	https://github.com/Your_Username/ReactWebsite.git (fetch)
+origin	https://github.com/Your_Username/ReactWebsite.git (push)
+```
+
+To add upstream to remote, run:
+
+```sh
+git remote add upstream https://github.com/AnnadataHackfest/ReactWebsite.git
+```
+
+Again run `git remote -v`, the response should look like:
+
+```sh
+origin	https://github.com/Your_Username/ReactWebsite.git (fetch)
+origin	https://github.com/Your_Username/ReactWebsite.git (push)
+upstream	https://github.com/AnnadataHackfest/ReactWebsite (fetch)
+upstream	https://github.com/AnnadataHackfest/ReactWebsite (push)
+```
+
+4. Once the remote is set, install all the necessary dependencies by the following command:
+
+```sh
+npm install
+```
+
+### Run locally
+
+Run the below command to start the server:
+
+```sh
+npm start
+```
+
+Go to: [http://localhost:3000](http://localhost:3000)
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
@@ -6,7 +80,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 In the project directory, you can run:
 
-### `yarn start`
+### `npm start`
 
 Runs the app in the development mode.\
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
@@ -14,12 +88,12 @@ Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 The page will reload if you make edits.\
 You will also see any lint errors in the console.
 
-### `yarn test`
+### `npm test`
 
 Launches the test runner in the interactive watch mode.\
 See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-### `yarn build`
+### `npm build`
 
 Builds the app for production to the `build` folder.\
 It correctly bundles React in production mode and optimizes the build for the best performance.
@@ -29,7 +103,7 @@ Your app is ready to be deployed!
 
 See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-### `yarn eject`
+### `npm eject`
 
 **Note: this is a one-way operation. Once you `eject`, you can’t go back!**
 
@@ -65,6 +139,6 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/a
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
 
-### `yarn build` fails to minify
+### `npm build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)

@@ -12,5 +12,5 @@ export default combineReducers({
   auth: authReducer,
   question: questionReducer,
   info: infoReducer,
-  soil: soilReducer
+  soil: soilReducer,
 });
